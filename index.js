@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 
 app.get("/atp/:n?", async (req, res) => {
-    const defaultN = 5;
+  const defaultN = 5;
   const n = req.params.n || defaultN;
   const url = "https://www.atptour.com/en/rankings/singles";
   request(url, function (error, response, html) {
@@ -23,4 +23,4 @@ app.get("/atp/:n?", async (req, res) => {
   });
 });
 
-app.listen("8080");
+app.listen(process.env.PORT || "8080");
